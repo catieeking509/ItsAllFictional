@@ -3,6 +3,8 @@ import { Form, Button, FormGroup, Label, Input } from 'reactstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
+import '../App.css';
+
 const RATING = {
   One: 'Not Great',
   Two: 'Okay',
@@ -16,7 +18,7 @@ function mdyToYmd(mdyString) {
   return `${y}-${M}-${d}`;
 }
 
-export default function BookForm({ submitItem, defaultDate = '', defaultRating = RATING.Two, defaultLink = '', defaultDescription = '', cardId = 'create-form' }) {
+export default function BookForm({ submitItem, defaultDate = '', defaultRating = RATING.Two, defaultLink = '', defaultDescription = '', defaultTitle = '', defaultAuthor = '', cardId = 'create-form' }) {
 
   
 
@@ -24,6 +26,8 @@ const [date, setDate] = useState(mdyToYmd(defaultDate));
 const [link, setLink] = useState(defaultLink);
 const [description, setDescription] = useState(defaultDescription);
 const [rating, setRating] = useState(defaultRating);
+const [title, setTitle] = useState(defaultTitle);
+const [author, setAuthor] = useState(defaultAuthor);
 
 function handleDateChange(e) {
   setDate(e.target.value);
@@ -41,17 +45,27 @@ function handleRatingChange(e) {
   setRating(e.target.value);
 }
 
+function handleTitleChange(e) {
+  setTitle(e.target.value);
+}
+
+function handleAuthorChange(e) {
+  setAuthor(e.target.value);
+}
+
 function handleSubmit(e) {
   e.preventDefault();
 
   const [y, M, d] = date.split('-');
   const formattedDate = `${M}/${d}/${y}`;
-  submitItem(formattedDate, link, description, rating);
+  submitItem(formattedDate, link, description, rating, title, author);
 
   setDate ('');
   setLink ('');
   setDescription ('');
   setRating (RATING.Two);
+  setAuthor ('');
+  setTitle ('');
 }
 
   return (
@@ -71,30 +85,30 @@ function handleSubmit(e) {
           />
         </FormGroup>
         <FormGroup className="form-add-row">
-            <Label for={"link-title" + cardId}>
-                Title
-            </Label>
-            <Input  
-                id={"link-title" + cardId}
-                name="title"
-                type="title"
-                value={title}
-                onChange={handleTitleChange}
-                required
-            />
+          <Label for={"link-title" + cardId}>
+            Title
+          </Label>
+          <Input  
+            id={"link-title" + cardId}
+            name="title"
+            type="title"
+            value={title}
+            onChange={handleTitleChange}
+            required
+          />
         </FormGroup>
         <FormGroup className="form-add-row">
-            <Label for={"link-author" + cardId}>
-                Author
-            </Label>
-            <Input  
-                id={"link-author" + cardId}
-                name="author"
-                type="author"
-                value={author}
-                onChange={handleAuthorChange}
-                required
-            />
+          <Label for={"link-author" + cardId}>
+            Author
+          </Label>
+          <Input  
+            id={"link-author" + cardId}
+            name="author"
+            type="author"
+            value={author}
+            onChange={handleAuthorChange}
+            required
+          />
         </FormGroup>
         <FormGroup className="form-add-row">
           <Label for={"link-url" + cardId}>

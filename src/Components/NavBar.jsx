@@ -20,24 +20,24 @@ export default function NavBar(args) {
   return (
     <div className='nav-section'>
       <Navbar {...args}>
-        <NavbarBrand href="/">
+        <NavbarBrand>
           <img alt="logo" src="/logo-white.svg" style={{
             height: 40,
             width: 40
           }}
           />
         </NavbarBrand>
-        <NavbarBrand href="/">it's all fictional</NavbarBrand>
+        <NavbarBrand>it's all fictional</NavbarBrand>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="me-auto" navbar>
             <NavItem>
-              <NavLink to="/" exact >
+              <NavLink to="/" exact="true" >
                 home
               </NavLink>
             </NavItem>
             <NavItem>
-              <NavLink to="/Books">
+              <NavLink to="/BookShelf">
                 books
               </NavLink>
             </NavItem>
