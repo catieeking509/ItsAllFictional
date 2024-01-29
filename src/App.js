@@ -3,7 +3,8 @@ import NavBar from './Components/NavBar.jsx';
 import Books from './Components/Books.jsx';
 import Favorites from './Components/Favorites.jsx';
 import ContactForm from './Components/Contact.jsx';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import LoginPage from './Components/LoginPage.jsx';
+import { HashRouter, Routes, Route } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
@@ -14,7 +15,7 @@ function App() {
 
 
   return (
-    <BrowserRouter>
+    <HashRouter>
       <div className="App">
         <header className="App-header">
           <NavBar/>
@@ -25,13 +26,14 @@ function App() {
             <Route path="/Books" element={<Books />} />
             <Route path="/Favorites" element={<Favorites />} />
             <Route path="/Contact" element={<ContactForm />} />
+            <Route path="/LoginPage" element={<LoginPage />} />
           </Routes>
         </main>
         <footer className="footer">
-        " will be login"
+          FOOTER
         </footer>
       </div>      
-    </BrowserRouter>
+    </HashRouter>
 
   );
 }

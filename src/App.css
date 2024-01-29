@@ -25,3 +25,11 @@
 .home-section {
   background-color: yellow;
 }
+
+.login-section {
+  background-color: burlywood;
+}
+
+.active {
+  color: red;
+}
