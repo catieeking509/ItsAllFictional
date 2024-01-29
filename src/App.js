@@ -4,7 +4,7 @@ import Books from './Components/Books.jsx';
 import Favorites from './Components/Favorites.jsx';
 import ContactForm from './Components/Contact.jsx';
 import LoginPage from './Components/LoginPage.jsx';
-import { HashRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
@@ -15,7 +15,7 @@ function App() {
 
 
   return (
-    <HashRouter>
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
       <div className="App">
         <header className="App-header">
           <NavBar/>
@@ -33,7 +33,7 @@ function App() {
           FOOTER
         </footer>
       </div>      
-    </HashRouter>
+    </BrowserRouter>
 
   );
 }
