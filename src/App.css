@@ -2,4 +2,26 @@
   text-align: center;
 }
 
+.contact-form {
+  background-color: blue;
+}
 
+.favorites-section {
+  background-color: pink;
+}
+
+.books-section {
+  background-color: orange;
+}
+
+.nav-section {
+  background-color: green;
+}
+
+.footer {
+  background-color: purple;
+}
+
+.home-section {
+  background-color: yellow;
+}
